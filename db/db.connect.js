@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-const mongoURI = `mongodb+srv://neoGStudent:neoGStudentAmanKhare@neog.thgfor2.mongodb.net/?retryWrites=true&w=majority&appName=neoG`;
+require("dotenv").config({ path: ".env" });
+
+const mongoURI = process.env.MONGO_URI;
 
 const initialisation = async () => {
   try {
