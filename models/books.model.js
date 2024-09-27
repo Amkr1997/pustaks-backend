@@ -25,10 +25,12 @@ const booksSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  imageUrl: {
-    type: String,
-    required: true,
-  },
+  imageUrl: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
 });
 
 const NewBook = mongoose.model("NewBook", booksSchema);
