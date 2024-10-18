@@ -1,12 +1,14 @@
 const mongoose = require("mongoose");
 
 const cartSchema = mongoose.Schema({
-  productDetails: [
-    {
-      productId: String,
-      productQuantity: Number,
-    },
-  ],
+  bookId: {
+    type: String,
+    required: true,
+  },
+  bookQuantity: {
+    type: Number,
+    required: true,
+  },
 });
 
 const Cart = mongoose.model("newBookCart", cartSchema);

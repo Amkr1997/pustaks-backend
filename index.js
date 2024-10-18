@@ -1,4 +1,5 @@
 const NewBook = require("./models/books.model");
+//const BookCart = require("./models/bookCart.model");
 const Cart = require("./models/cart.model");
 const WishList = require("./models/wishlist.model");
 const Address = require("./models/address.model");
@@ -124,14 +125,14 @@ app.delete(`/newBooks/newBook/:bookId`, async (req, res) => {
 });
 
 // post book in cart
-app.post(`/newBookscart`, async (req, res) => {
-  const addProduct = req.body;
+app.post(`/newBooksCart`, async (req, res) => {
+  const addBook = req.body;
 
   try {
-    const addedProd = new Cart(addProduct);
-    const savedProduct = await addedProd.save();
+    const addedBook = new Cart(addBook);
+    const savedBook = await addedBook.save();
 
-    res.status(201).json(savedProduct);
+    res.status(201).json(savedBook);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Internal server error" });
@@ -140,11 +141,11 @@ app.post(`/newBookscart`, async (req, res) => {
 
 // update book in cart
 app.post(`/newBooksCart/updateBook/:bookId`, async (req, res) => {
-  const prodToUpdate = req.body;
-  const prodId = req.params.bookId;
+  const bookToUpdate = req.body;
+  const bookId = req.params.bookId;
 
   try {
-    const updatedBook = await Cart.findByIdAndUpdate(prodId, prodToUpdate, {
+    const updatedBook = await Cart.findByIdAndUpdate(bookId, bookToUpdate, {
       new: true,
     });
 
