@@ -1,10 +1,6 @@
 const mongoose = require("mongoose");
 
 const cartSchema = mongoose.Schema({
-  bookId: {
-    type: String,
-    required: true,
-  },
   bookName: {
     type: String,
     required: true,
