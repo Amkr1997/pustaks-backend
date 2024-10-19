@@ -1,27 +1,35 @@
 const mongoose = require("mongoose");
 
 const cartSchema = mongoose.Schema({
-  bookName: {
+  name: {
     type: String,
     required: true,
   },
-  bookPrice: {
+  price: {
     type: Number,
     required: true,
   },
-  bookImgUrl: {
+  author: {
     type: String,
     required: true,
   },
-  bookCategory: {
+  description: {
     type: String,
     required: true,
   },
-  bookRating: {
+  imageUrl: {
+    type: String,
+    required: true,
+  },
+  category: {
+    type: String,
+    required: true,
+  },
+  rating: {
     type: Number,
     required: true,
   },
-  bookQuantity: {
+  quantity: {
     type: Number,
     required: true,
   },
