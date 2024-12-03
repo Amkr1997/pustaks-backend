@@ -3,6 +3,7 @@ const NewBook = require("./models/books.model");
 const Cart = require("./models/cart.model");
 const WishList = require("./models/wishlist.model");
 const Address = require("./models/address.model");
+const OrderHistory = require("./models/orders.model");
 const { initialisation } = require("./db/db.connect");
 
 initialisation();
@@ -229,6 +230,53 @@ app.get(`/newWishListBooks`, async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// post book order to order history.
+app.post("/ordersHistory", async (req, res) => {
+  const orderPlaced = req.body;
+
+  try {
+    const newOrders = new OrderHistory(orderPlaced);
+    const savedOrder = await newOrders.save();
+
+    if (!savedOrder) {
+      res.status(404).json({ error: "order not saved" });
+    }
+
+    res.status(200).json(savedOrder);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// get order history.
+app.get("/ordersHistory", async (req, res) => {
+  try {
+    const allOrders = await OrderHistory.find();
+
+    if (!allOrders) res.status(404).json({ error: "can't find orders" });
+
+    res.status(200).json(allOrders);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// delete order history
+app.delete("/deleteOrder/:orderId", async (req, res) => {
+  const userId = req.params.orderId;
+
+  try {
+    const deletedOrder = await OrderHistory.findByIdAndDelete(userId);
+
+    if (!deletedOrder)
+      res.status(404).json({ error: "Order cannot get delete" });
+
+    res.status(200).json(deletedOrder);
+  } catch (error) {
+    console.log(error);
   }
 });
 
