@@ -281,7 +281,7 @@ app.delete("/deleteOrder/:orderId", async (req, res) => {
 });
 
 // get address, for exiting user
-app.get(`/newBookAddress`, async (req, res) => {
+app.get(`/get/delivery/address`, async (req, res) => {
   try {
     const bookAddress = await Address.find();
     res.status(201).json(bookAddress);
@@ -292,7 +292,7 @@ app.get(`/newBookAddress`, async (req, res) => {
 });
 
 // post new address
-app.post(`/newBookAddress`, async (req, res) => {
+app.post(`/add/delivery/address`, async (req, res) => {
   const addressdata = req.body;
 
   try {
@@ -307,7 +307,7 @@ app.post(`/newBookAddress`, async (req, res) => {
 });
 
 // update address for exiting user.
-app.post(`/newBookAddress/:bookId`, async (req, res) => {
+app.post(`/update/delivery/address/:bookId`, async (req, res) => {
   const updatedBookAddress = req.body;
   const bookAddressId = req.params.bookId;
   try {
@@ -327,7 +327,7 @@ app.post(`/newBookAddress/:bookId`, async (req, res) => {
 });
 
 // delete address
-app.delete(`/newBookAddress/bookAddress/:bookId`, async (req, res) => {
+app.delete(`/delete/delivery/address/:bookId`, async (req, res) => {
   const bookId = req.params.bookId;
 
   try {
