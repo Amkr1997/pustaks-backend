@@ -1,0 +1,14 @@
+{
+  "_id": "66f095458d96613248fdc5b0",
+  "name": "Half-Lion",
+  "category": "Biography",
+  "price": 219,
+  "rating": 4.6,
+  "author": "Vinay Sitapati",
+  "description": "When P.V. Narasimha Rao became the unlikely prime minister of India in 1991, he inherited economic crisis, violent insurgencies and a nation adrift. Despite being unloved by his people, mistrusted by his party, a minority in Parliament and ruling under the shadow of 10 Janpath, Rao reinvented India, at home and abroad. With exclusive access to Rao's never-before-seen personal papers as well as over a hundred interviews, this definitive biography provides new revelations on the Indian economy, nuclear programme, foreign policy and the Babri Masjid. Meticulously researched and honestly told, this landmark political biography is a must-read for anyone interested in the man responsible for transforming India.",
+  "imageUrl": [
+    "https://m.media-amazon.com/images/I/81hbBVjhhML._SY466_.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Z_JceDifJlCWuSR9ij5PHCeeYkW9n_7_Tw&s"
+  ],
+  "__v": 0
+}
