@@ -12,7 +12,12 @@ app.use(express.json());
 
 const cors = require("cors");
 const corsOptions = {
-  origin: "https://pustaks.vercel.app",
+  origin: [
+    "https://pustaks.vercel.app",
+    "http://localhost:5173",
+    "http://localhost:5174",
+  ],
+  default: "https://pustaks.vercel.app",
   credentials: true,
   openSuccssStatus: 200,
 };
